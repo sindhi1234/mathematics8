@@ -1,0 +1,20 @@
+import numpy as np
+import sys
+
+A = np.array([[25,1,2],[1,3,0],[2,0,-4]])
+x = np.array([[1],[0],[0]])
+max_iteration = int(input('Enter maximum number of steps:'))
+lambda_old = 1.0
+condition = True
+step = 1
+while condition:
+    x = np.dot(A,x)
+    lambda_new = max(abs(x))
+    x = x/lambda_new
+    print('\nSTEP %d' %(step))
+    print('------------------')
+    print('Eigen Value = %0.4f' %(lambda_new))
+    print('Eigen vector = \n',x)
+    step = step + 1
+    if step > max_iteration:
+        break
