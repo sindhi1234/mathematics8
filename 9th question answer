@@ -1,0 +1,23 @@
+from sympy import*
+import math
+
+z=symbols ('z', complex=True)
+fz=sin(pi*z**2)+cos(pi*z**2)
+fz0=fz.subs(z,1)
+fzl=diff(fz,z)
+fz11=fzl.subs(z,1)
+fz2=fz.subs (z, 2)
+F=1/((z-1)**2*(z-2))
+F=apart(F)
+c=2*pi*I
+A=c*fz0
+C=c*fz2
+def fact (n):
+    return (math.factorial (n))
+num=int(input('Enter a number n='))
+f=fact(num)
+print ("factorial of", num, "is", f)
+d=2*pi*I/f
+B=d*fz11
+Ans=simplify(-A-B+C)
+print("\nF=",F, "\nA=",A, "\nB=", B, "\nC-", C, "\nAns=", Ans)
