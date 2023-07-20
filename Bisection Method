@@ -1,0 +1,21 @@
+from sympy import*
+def f(x):
+    return x**3-4*x-9
+a=float(input('Enter the value of a='))
+b=float(input('Enter the value of b='))
+if f(a)*f(b)>0.0:
+    print('the root of f(x) does not lies inbetween the a and b')
+else:
+    print('The root of f(x) lies inbetween the a and b')
+    print('\n\n*****BISECTION METHOD*****')
+    i=int(input('Enter no. of iterations='))
+    step=1
+    while(step<=i):
+        x=(a+b)/2
+        print('Iteration:%d, x=%0.6f and f(x)=%0.6f' %(step,x,f(x)))
+        if f(a)*f(x)<0:
+            b=x
+        else:
+            a=x
+        step=step+1
+    print('\n Required approximate root is = %0.6f'%x)
