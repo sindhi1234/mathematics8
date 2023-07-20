@@ -1,0 +1,17 @@
+from sympy import*
+x,y=symbols('x,y',real=True)
+u=x**2-y**2
+v=-y/(x**2+y**2)
+ux=diff(u,x)
+uxx=diff(ux,x)
+uy=diff(u,y)
+uyy=diff(uy,y)
+vx=diff(v,x)
+vxx=diff(vx,x)
+vy=diff(v,y)
+vyy=diff(vy,y)
+print("\nu=",u,"\nv=",v,"\nuxx=",uxx,"\nuyy=",uyy,"\nvxx=",vxx,"\nvyy=",vyy)
+if uxx+uyy==0 and vxx+vyy==0:
+    print('u and v are harmonic')
+else:
+    print('u and v are not harmonic')
