@@ -1,0 +1,11 @@
+from sympy  import*
+x,y,c=symbols('x,y,c',real=True)
+z=symbols('z',complex=True)
+u=exp(x)*(x*cos(y)-y*sin(y))
+ux=diff(u,x)
+uy=diff(u,y)
+f1=ux.subs([(x,z),(y,0)])
+f2=uy.subs([(x,z),(y,0)])
+w=integrate(f1,z)-I*integrate(f2,z)+c
+print("\nu=",u,"\nux=",ux,"\nuy=",uy,"\nf1=",f1,"\nf2=",f2)
+print("The required analytic function w=",w)
