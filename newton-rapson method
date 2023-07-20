@@ -1,0 +1,22 @@
+from sympy import*
+def f(x):
+    return 3*x-cos(x)-1
+def g(x):
+    return 3+sin(x)
+x0=float(input('Enter the value of x0='))
+x1=float(input('Enter the value of x1='))
+if f(x0)*f(x1)>0.0:
+    print('The root of f(x) does not lies inbetween the a and b')
+else:
+    print('The root of f(x) lies inbetween the x0 and x1')
+    print('\n\n*****NEWTON RAPSON METHOD*****')
+    i=int(input('Enter no. of iterations='))
+    step=1
+    while (step<=i):
+        if g(x0)==0.0:
+            break
+        x=x0-(f(x0)/g(x0))
+        print('Iteration:%d, x=%0.6f and f(x)=%0.6f' %(step,x,f(x)))
+        x0=x
+        step=step+1
+    print('\n Required root is = %0.6f' %x)
