@@ -1,0 +1,16 @@
+from sympy import*
+x,y=symbols('x,y',real=True)
+z=symbols('z',complex=True)
+z=x+I*y
+fz=sin(z)
+u=re(fz)
+v=im(fz)
+ux=diff(u,x)
+uy=diff(u,y)
+vx=diff(v,x)
+vy=diff(v,y)
+print("\nfz=",fz,"\nu=",u,"\nv=",v,"\nux=",ux,"\nuy=",uy,"\nvx=",vx,"\nvy=",vy)
+if ux==vy and uy==-vx:
+    print('fz is an analytic function')
+else:
+    print('fz is not an analytic function')
